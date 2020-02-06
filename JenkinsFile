@@ -7,9 +7,17 @@ pipeline{
                 steps
                  { 
                     Ncreate_repo(jsondata)
-                    
+                    NlogNexus("Project created",jsondata)
+    }
+    post
+    {
+    failure
+    {
+      log_function("Project not created",jsondata)
+    }
+    }
                  }
-            }
+           
          
         
          stage('Create_user')
