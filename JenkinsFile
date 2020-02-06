@@ -1,0 +1,61 @@
+@Library('shlib1')_
+pipeline{
+  agent any
+  stages{
+        stage('Create_Proj')
+            {
+                steps
+                 { 
+                    Ncreate_repo(jsondata)
+                    
+                 }
+            }
+         
+         stage('Delete_Proj')
+            {
+                steps
+                 { 
+                    Ndelete_repo(jsondata)
+                    
+                 }
+            }
+         stage('Create_user')
+            {
+                steps
+                 { 
+                    Ncreate_user(jsondata)
+                    
+                 }
+            }
+          stage('userpassword_change')
+            {
+                steps
+                 { 
+                    Nchange_pwd(jsondata)
+                    
+                 }
+            }
+           stage('Artifact_down')
+            {
+                steps
+                 { 
+                    Ndown_artifact(jsondata)
+                    
+                 }
+            }
+           stage('nexus_collector')
+            {
+                steps
+                 { 
+                    NexusCollector(jsondata)
+                    
+                 }
+            }
+           
+      }
+  }
+            
+            
+            
+            
+            
