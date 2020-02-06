@@ -47,13 +47,13 @@ pipeline{
                 steps
                  { 
                     Npart_repo(jsondata)
-                    NlogNexus("repo details created",jsondata)
+                    NlogNexus("repo details collected",jsondata)
     }
     post
     {
     failure
     {
-      NlogNexus("repo details not created",jsondata)
+      NlogNexus("repo details not collected",jsondata)
     }
                  }
             }  
