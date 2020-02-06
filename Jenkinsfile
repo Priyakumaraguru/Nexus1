@@ -13,7 +13,7 @@ pipeline{
     {
     failure
     {
-      NlogNexus("Repot not created",jsondata)
+      NlogNexus("Repo not created",jsondata)
     }
     
                  }
