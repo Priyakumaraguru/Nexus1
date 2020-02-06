@@ -7,43 +7,18 @@ pipeline{
                 steps
                  { 
                     Ncreate_repo(jsondata)
-                    
+                    NlogNexus("Repo created",jsondata)
+    }
+    post
+    {
+    failure
+    {
+      NlogNexus("Repot not created",jsondata)
+    }
+    
                  }
             }
-      stage('part_details')
-            {
-                steps
-                 { 
-                    Npart_repo(jsondata)
-                    
-                 }
-            }  
-      stage('Repo_details')
-            {
-                steps
-                 { 
-                    Nlist_repos(jsondata)
-                    
-                 }
-            }
-      stage('Down_arti')
-            {
-                steps
-                 { 
-                    Ndown_artifact(jsondata)
-                    
-                 }
-            }
-       stage('Delete_Proj')
-            {
-                steps
-                 { 
-                    Ndelete_repo(jsondata)
-                    
-                 }
-            }
-            
-        stage('Create_user')
+     stage('Create_user')
             {
                 steps
                  { 
@@ -51,6 +26,55 @@ pipeline{
                     
                  }
             }
+    stage('userpassword_change')
+            {
+                steps
+                 { 
+                    Nchange_pwd(jsondata)
+                    
+                 }
+            }
+    stage('Artifact_down')
+            {
+                steps
+                 { 
+                    Ndown_artifact(jsondata)
+                    
+                 }
+            }  
+      stage('part_details')
+            {
+                steps
+                 { 
+                    Npart_repo(jsondata)
+                    NlogNexus("repo details created",jsondata)
+    }
+    post
+    {
+    failure
+    {
+      NlogNexus("repo details not created",jsondata)
+    }
+                 }
+            }  
+    
+      stage('Repo_details')
+            {
+                steps
+                 { 
+                    Nlist_repos(jsondata)
+                   /* NlogNexus("Project created",jsondata)
+    }
+    post
+    {
+    failure
+    {
+      NlogNexus("Project not created",jsondata)
+    }*/
+                 }
+            }
+      
+      
          stage('User_info')
             {
                 steps
@@ -64,25 +88,17 @@ pipeline{
                 steps
                  { 
                     Nrepo_status(jsondata)
-                    
+                    NlogNexus("repo status collected",jsondata)
+    }
+    post
+    {
+    failure
+    {
+      NlogNexus("repo status not collected",jsondata)
+    }
                  }
             }
-          stage('userpassword_change')
-            {
-                steps
-                 { 
-                    Nchange_pwd(jsondata)
-                    
-                 }
-            }
-          stage('Artifact_down')
-            {
-                steps
-                 { 
-                    Ndown_artifact(jsondata)
-                    
-                 }
-            }       
+               
          stage('privilege')
             {
                 steps
@@ -91,7 +107,21 @@ pipeline{
                     
                  }
             }
-                    
+         /*  stage('Delete_Proj')
+            {
+                steps
+                 { 
+                    Ndelete_repo(jsondata)
+                    NlogNexus("repo deleted",jsondata)
+    }
+    post
+    {
+    failure
+    {
+      NlogNexus("repo not deleted",jsondata)
+    }
+                 }
+            }   */      
             
             
   }
