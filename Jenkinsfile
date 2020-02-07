@@ -7,7 +7,7 @@ pipeline{
                 steps
                  { 
                     Ncreate_repo(jsondata)
-                    NlogNexus("Repo created",jsondata)
+                   NlogNexus("${repoName} is created",jsondata)
     }
     post
     {
