@@ -142,7 +142,7 @@ pipeline{
     }
                  }
             }
-         /* stage('Delete_Proj')
+          stage('Delete_Proj')
             {
                 steps
                  { 
@@ -156,7 +156,7 @@ pipeline{
       NlogNexus("repo not deleted")
     }
                  }
-            }   */      
+            }     
             
             
   }
