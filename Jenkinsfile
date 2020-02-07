@@ -6,7 +6,7 @@ pipeline{
             {
                 steps
                  { 
-                    Ncreate_repo(jsondata)
+                    Ncreate_repo(JSON)
                    NlogNexus("Repo is created")
     }
     post
@@ -22,7 +22,7 @@ pipeline{
             {
                 steps
                  { 
-                    Ncreate_user(jsondata)
+                    Ncreate_user(JSON)
                     NlogNexus("User is created")
     }
     post
@@ -37,7 +37,7 @@ pipeline{
             {
                 steps
                  { 
-                    Nchange_pwd(jsondata)
+                    Nchange_pwd(JSON)
                      NlogNexus("User password is changed")
     }
     post
@@ -52,7 +52,7 @@ pipeline{
             {
                 steps
                  { 
-                    Ndown_artifact(jsondata)
+                    Ndown_artifact(JSON)
                     NlogNexus("Artifact is downloaded")
     }
     post
@@ -67,7 +67,7 @@ pipeline{
             {
                 steps
                  { 
-                    Npart_repo(jsondata)
+                    Npart_repo(JSON)
                     NlogNexus("repo details collected")
     }
     post
@@ -83,7 +83,7 @@ pipeline{
             {
                 steps
                  { 
-                    Nlist_repos(jsondata)
+                    Nlist_repos(JSON)
                     NlogNexus("Repository details are collected")
     }
     post
@@ -100,7 +100,7 @@ pipeline{
             {
                 steps
                  { 
-                    Nuserid_info(jsondata)
+                    Nuserid_info(JSON)
                     NlogNexus("User information is collected")
     }
     post
@@ -115,7 +115,7 @@ pipeline{
             {
                 steps
                  { 
-                    Nrepo_status(jsondata)
+                    Nrepo_status(JSON)
                     NlogNexus("repo status collected")
     }
     post
@@ -131,7 +131,7 @@ pipeline{
             {
                 steps
                  { 
-                    NPrivilage(jsondata)
+                    NPrivilage(JSON)
                     NlogNexus(" security privileges retrived")
     }
     post
@@ -146,7 +146,7 @@ pipeline{
             {
                 steps
                  { 
-                    Ndelete_repo(jsondata)
+                    Ndelete_repo(JSON)
                     NlogNexus("repo deleted")
     }
     post
